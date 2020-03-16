@@ -29,9 +29,10 @@ namespace WebApplication8
             {
                 options.UseSqlServer(Configuration.GetConnectionString("WebApplication8Db"));
             }
-            );
+                );
+            services.AddScoped<IPessoaData, SqlPessoaData>();
 
-          services.AddControllersWithViews();
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

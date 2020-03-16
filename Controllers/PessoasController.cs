@@ -19,14 +19,22 @@ namespace WebApplication8.Controllers
             _context = context;
         }
 
-        // GET: Pessoas
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
+            var pessoas = from p in _context.Pessoas
+                          select p;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                pessoas = _context.Pessoas.Where(x => x.Nome.Contains(searchString));
+                return View(pessoas);
+            }
+
             return View(await _context.Pessoas.ToListAsync());
         }
 
-        // GET: Pessoas/Details/5
-        public async Task<IActionResult> Details(int? id)
+            // GET: Pessoas/Details/5
+            public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
