@@ -30,6 +30,7 @@ namespace WebApplication8
                 options.UseSqlServer(Configuration.GetConnectionString("WebApplication8Db"));
             }
                 );
+
             services.AddScoped<IPessoaData, SqlPessoaData>();
 
             services.AddControllersWithViews();

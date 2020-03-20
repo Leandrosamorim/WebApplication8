@@ -1,0 +1,40 @@
+﻿@model WebApplication8.Models.AniversariantesViewModel
+
+<table class="table-bordered">
+    <a>Aniversariantes do dia</a>
+    <tbody>
+        @foreach (var item in Model.AniversariantesDoDia)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sobrenome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Aniversario)
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+<table class="table-bordered">
+    <tbody>
+        <a>Proximos Aniversariantes</a>
+        @foreach (var item in Model.AniversariantesProximos)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sobrenome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Aniversario)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
